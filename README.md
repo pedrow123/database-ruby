@@ -26,6 +26,9 @@ As operações da forma enunciada acontecem rodando o arquivo *populaBd.rb*: `ru
 Ao rodar `ruby populaBd.rb < registros.txt` o banco vai ser populado com alguns registros. Esses registros já estão no banco criado na litorina.
 
 ## Operações para cada tabela
+- clear: similar ao comando "clear" do bash, mas para a aplicação. Limpa a tela para ajudar na visualização.
+
+- exit: sai da aplicação.
 
 ### Tabela players
 Armazena informações sobre jogadores de futebol.
