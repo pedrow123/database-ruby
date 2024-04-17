@@ -17,7 +17,25 @@ require 'opFutebol.rb'
 # insereTeam("Coritiba", "1909", "30M")
 # insereCoach("Mourinho", "4-4-2", "Coritiba")
 
-insereChampionshipTeam("Copa do Brasil", "Athletico")
+# insereChampionshipTeam("Copa do Brasil", "Athletico")
+# insereCoach("Guto Ferreira", "4-4-3", "Coritiba")
+# insereChampionship("Libertadores", "100M")
+# insereChampionshipTeam("Libertadores", "Athletico")
+# insereChampionshipTeam("Copa do Brasil", "Coritiba")
+# # listaTeams()
+# listaChampionships()
+# inserePlayer("Robson", "Atacante", "30", "Coritiba")
+# listaCoaches()
+
+# excluiCoach("Mourinho")
+listaCoaches()
+# insereCoach("Guardiola", "4-4-2", "Athletico")
+# excluiPlayer("Robson")
+# excluiPlayer("Cuello")
+# excluiTeam("Athletico")
+# excluiCoach("Guto Ferreira")
+listaTeams()
+# listaChampionships()
 
 
 # Criando instâncias dos modelos

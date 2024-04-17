@@ -56,16 +56,24 @@ end
 def listaTeams()
   t = Team.all
 
-  puts "NOME TIME | FUNDACAO | FATURAMENTO | ID"
-  t.each do |e|   
+  puts "ID | NOME TIME | FUNDACAO | FATURAMENTO | TREINADOR"
+  puts "\n"
+  t.each do |e|
     coa = e.coach
     players_team = e.players
-    puts "#{e.name_team} | #{e.foundation} | #{e.invoicing} | #{e.team_id} | #{coa.name_coach}"
-    puts "\n"
-    puts "Jogadores do #{e.name_team}:"
+    camp = e.championships
+    print "#{e.id} | #{e.name_team} | #{e.foundation} | #{e.invoicing} "
+    if coa
+      print "| #{coa.name_coach}"
+    end
+    print "\n"
+    puts "JOGADORES do #{e.name_team}:"
     players_team.each do |p|
-      puts "#{p.name_player}"
-      puts "\n"
+      puts "- #{p.name_player}"
+    end
+    puts "CAMPEONATOS do #{e.name_team}:"
+    camp.each do |i|
+      puts "- #{i.name_champ}"
     end
     puts "\n"
   end
@@ -74,9 +82,14 @@ end
 
 def listaChampionships()
   c = Championship.all
-  puts "NOME CAMPEONATO | PRÊMIO | ID"
+  puts "ID | NOME CAMPEONATO | PRÊMIO"
   c.each do |e|
-    puts "#{e.name_champ} | #{e.prize} | #{e.championship_id}"
+    puts "#{e.id} | #{e.name_champ} | #{e.prize}"
+    puts "TIMES do campeonato #{e.name_champ}:"
+    t = e.teams
+    t.each do |i|
+      puts "#{i.name_team}"
+    end
     puts "\n"
   end
   puts "\n\n"
@@ -85,23 +98,21 @@ end
 
 def listaPlayers()
   p = Player.all
-  puts "NOME JOGADOR | POSIÇÃO | IDADE | TIME | ID JOGADOR"
+  puts "ID | NOME JOGADOR | POSIÇÃO | IDADE | TIME"
 
   p.each do |e|
     t = e.team
-    puts "#{e.name_player} | #{e.position} | #{e.age} | #{t.name_team} | #{e.player_id}"
-    puts "\n"
+    puts "#{e.id} | #{e.name_player} | #{e.position} | #{e.age} | #{t.name_team}"
   end
   puts "\n\n"
 end
 
 def listaCoaches()
   c = Coach.all
-  puts "NOME TREINADOR | TÁTICA | TIME | TREINADOR ID"
+  puts "ID | NOME TREINADOR | TÁTICA | TIME"
   c.each do |e|
     t = e.team
-    puts "#{e.name_coach} | #{e.tactic} | #{t.name_team} | #{e.coach_id}"
-    puts "\n"
+    puts "#{e.id} | #{e.name_coach} | #{e.tactic} | #{t.name_team}"
   end
   puts "\n\n"
 end
@@ -126,7 +137,7 @@ def excluiChampionship(name)
   end
   c.destroy
   puts "Campeonato '#{name}' excluído com sucesso!"
-  
+
 end
 
 def excluiPlayer(name)
@@ -163,7 +174,6 @@ def alteraTeam(name, new_name, new_foundation, new_invoicing)
   t.save
   puts "Dados do time '#{name}' alterados com sucesso!"
 
-  end
 end
 
 def alteraPlayer(name, new_name, new_position, new_age, new_team)
@@ -202,7 +212,7 @@ def alteraCoach(name, new_name, new_tactic, new_team)
   c.team = t
   c.save
   puts "Dados do treinador '#{name}' alterados com sucesso!"
-  
+
 end
 
 # Função para alterar dados de um campeonato
@@ -216,5 +226,5 @@ def alteraChampionship(name, new_name, new_prize)
   c.prize = new_prize
   c.save
   puts "Dados do campeonato '#{name}' alterados com sucesso!"
-  
+
 end

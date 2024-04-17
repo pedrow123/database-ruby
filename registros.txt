@@ -1,0 +1,19 @@
+insere teams name_team="Athletico" foundation="1924" invoicing="200M"
+insere teams name_team="Coritiba" foundation="1909" invoicing="90M"
+insere teams name_team="Operário" foundation="1912" invoicing="20M"
+insere coaches name_coach="Guardiola" tactic="4-4-2" team="Athletico"
+insere coaches name_coach="Guto Ferreira" tactic="4-4-3" team="Coritiba"
+insere coaches name_coach="Rafael Guanaes" tactic="4-4-2" team="Operário"
+insere players name_player="Fernandinho" position="Meio-campo" age="39" team="Athletico"
+insere players name_player="Canobbio" position="Atacante" age="25" team="Athletico"
+insere players name_player="Robson" position="Atacante" age="31" team="Coritiba"
+insere players name_player="Marcelo Cirino" position="Atacante" age="34" team="Operário"
+insere championships name_champ="Copa do Brasil" prize="80M"
+insere championships_teams championship="Copa do Brasil" team="Athletico"
+insere championships_teams championship="Copa do Brasil" team="Coritiba"
+insere championships_teams championship="Copa do Brasil" team="Operário"
+lista teams
+lista players
+lista coaches
+lista championships
+exit 
